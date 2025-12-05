@@ -1,863 +1,982 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>HS Chris Choi | Tourism & Hospitality Insights</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-          content="Tourism and hospitality insights by HS Chris Choi. Expert commentary on consumer behavior, service management, sustainability, and AI in tourism.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg: #f7f7fb;
-            --bg-alt: #ffffff;
-            --text: #222222;
-            --muted: #6b7280;
-            --accent: #2563eb;
-            --accent-soft: rgba(37, 99, 235, 0.08);
-            --border: #e5e7eb;
-            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
-            --radius-lg: 18px;
-            --radius-md: 12px;
-            --radius-pill: 999px;
-            --max-width: 1080px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top left, #e0f2fe, #f7f7fb 40%) fixed;
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        /* Layout */
-
-        .page {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 96px 20px 72px;
-        }
-
-        /* NAVBAR */
-
-        .navbar {
-            position: fixed;
-            top: 12px;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            display: flex;
-            justify-content: center;
-            pointer-events: none;
-        }
-
-        .navbar-inner {
-            pointer-events: auto;
-            width: 100%;
-            max-width: var(--max-width);
-            background: rgba(248, 250, 252, 0.92);
-            border-radius: var(--radius-pill);
-            padding: 10px 18px;
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            backdrop-filter: blur(16px);
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .brand-mark {
-            width: 28px;
-            height: 28px;
-            border-radius: 11px;
-            background: conic-gradient(from 200deg, #1d4ed8, #22c55e, #eab308, #1d4ed8);
-            padding: 2px;
-        }
-
-        .brand-mark-inner {
-            width: 100%;
-            height: 100%;
-            border-radius: 9px;
-            background: #0f172a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #e5e7eb;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .brand-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand-title {
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .brand-subtitle {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 14px;
-            align-items: center;
-            font-size: 13px;
-        }
-
-        .nav-link {
-            padding: 6px 11px;
-            border-radius: 999px;
-            color: #4b5563;
-            border: 1px solid transparent;
-        }
-
-        .nav-link:hover {
-            background: rgba(15, 23, 42, 0.04);
-        }
-
-        .nav-link-primary {
-            border-color: rgba(37, 99, 235, 0.16);
-            background: rgba(37, 99, 235, 0.08);
-            color: #1d4ed8;
-            font-weight: 500;
-        }
-
-        /* HERO */
-
-        .hero {
-            display: grid;
-            grid-template-columns: minmax(0, 2.3fr) minmax(0, 2fr);
-            gap: 40px;
-            margin-top: 40px;
-            align-items: center;
-        }
-
-        .hero-card {
-            background: var(--bg-alt);
-            border-radius: var(--radius-lg);
-            padding: 32px 28px;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid rgba(148, 163, 184, 0.35);
-        }
-
-        .hero-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 4px 12px;
-            border-radius: var(--radius-pill);
-            background: var(--accent-soft);
-            color: #1d4ed8;
-            font-size: 12px;
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-
-        .hero-title {
-            font-size: 32px;
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-            margin-bottom: 12px;
-        }
-
-        .hero-span-accent {
-            color: #1d4ed8;
-        }
-
-        .hero-subtitle {
-            font-size: 14px;
-            color: var(--muted);
-            max-width: 480px;
-            margin-bottom: 22px;
-        }
-
-        .hero-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            font-size: 12px;
-            color: var(--muted);
-            margin-bottom: 22px;
-        }
-
-        .hero-meta span {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .hero-meta-dot {
-            width: 4px;
-            height: 4px;
-            border-radius: 999px;
-            background: #9ca3af;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            font-size: 13px;
-            padding: 9px 16px;
-            border-radius: var(--radius-pill);
-            border: 1px solid transparent;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-decoration: none;
-        }
-
-        .btn-primary {
-            background: #1d4ed8;
-            color: #f9fafb;
-            border-color: #1d4ed8;
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.45);
-        }
-
-        .btn-primary:hover {
-            background: #1e40af;
-        }
-
-        .btn-ghost {
-            background: transparent;
-            color: #374151;
-            border-color: rgba(148, 163, 184, 0.7);
-        }
-
-        .btn-ghost:hover {
-            background: rgba(15, 23, 42, 0.03);
-        }
-
-        .hero-note {
-            font-size: 11px;
-            color: var(--muted);
-        }
-
-        .hero-right {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .hero-profile {
-            background: rgba(15, 23, 42, 0.94);
-            color: #e5e7eb;
-            border-radius: var(--radius-lg);
-            padding: 22px 22px 18px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-profile::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.38), transparent 60%);
-            mix-blend-mode: screen;
-            opacity: 0.9;
-        }
-
-        .hero-profile-inner {
-            position: relative;
-            display: flex;
-            gap: 16px;
-            align-items: center;
-        }
-
-        .avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 24px;
-            background: radial-gradient(circle at 20% 0, #facc15, #3b82f6);
-            padding: 2px;
-        }
-
-        .avatar-inner {
-            width: 100%;
-            height: 100%;
-            border-radius: 22px;
-            background: #020617;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: 700;
-        }
-
-        .hero-profile-text {
-            flex: 1;
-        }
-
-        .hero-profile-name {
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .hero-profile-role {
-            font-size: 12px;
-            color: #cbd5f5;
-            margin-bottom: 6px;
-        }
-
-        .hero-profile-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            font-size: 11px;
-        }
-
-        .tag {
-            padding: 3px 9px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(148, 163, 184, 0.4);
-        }
-
-        .hero-stats {
-            background: rgba(15, 23, 42, 0.85);
-            color: #e5e7eb;
-            border-radius: var(--radius-lg);
-            padding: 14px 18px;
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-            font-size: 11px;
-        }
-
-        .stat-label {
-            color: #9ca3af;
-            margin-bottom: 2px;
-        }
-
-        .stat-value {
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        /* SECTION LAYOUTS */
-
-        section {
-            margin-top: 40px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 14px;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        .section-subtitle {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        /* EXPERTISE SECTION */
-
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-        }
-
-        .chip-card {
-            background: var(--bg-alt);
-            border-radius: var(--radius-md);
-            padding: 14px 14px 12px;
-            border: 1px solid var(--border);
-        }
-
-        .chip-title {
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .chip-body {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        /* BLOG SECTION */
-
-        .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .post-card {
-            background: var(--bg-alt);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border);
-            padding: 16px 15px 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .post-badge-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 11px;
-            color: var(--muted);
-        }
-
-        .post-badge {
-            padding: 3px 9px;
-            border-radius: 999px;
-            background: rgba(37, 99, 235, 0.08);
-            color: #1d4ed8;
-            font-weight: 500;
-        }
-
-        .post-title {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .post-meta {
-            font-size: 11px;
-            color: var(--muted);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .post-excerpt {
-            font-size: 12px;
-            color: #374151;
-        }
-
-        .post-readmore {
-            margin-top: 4px;
-            font-size: 12px;
-            color: #1d4ed8;
-            font-weight: 500;
-        }
-
-        /* TEACHING / CONTACT */
-
-        .two-column {
-            display: grid;
-            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-            gap: 18px;
-        }
-
-        .panel {
-            background: var(--bg-alt);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border);
-            padding: 18px 16px 16px;
-        }
-
-        .panel-title {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .panel-body {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        .panel-list {
-            margin-top: 8px;
-            font-size: 12px;
-            color: #374151;
-            list-style: none;
-        }
-
-        .panel-list li {
-            margin-bottom: 5px;
-        }
-
-        .panel-list li::before {
-            content: "•";
-            margin-right: 6px;
-            color: #9ca3af;
-        }
-
-        .contact-row {
-            margin-top: 10px;
-            font-size: 12px;
-        }
-
-        .contact-row a {
-            color: #1d4ed8;
-            font-weight: 500;
-        }
-
-        footer {
-            margin-top: 40px;
-            font-size: 11px;
-            color: var(--muted);
-            text-align: center;
-        }
-
-        /* RESPONSIVE */
-
-        @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: minmax(0, 1fr);
-            }
-            .hero-right {
-                order: -1;
-            }
-            .expertise-grid,
-            .posts-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 640px) {
-            .navbar-inner {
-                padding-inline: 12px;
-                gap: 8px;
-            }
-            .nav-links {
-                display: none;
-            }
-            .page {
-                padding-inline: 16px;
-                padding-top: 86px;
-            }
-            .expertise-grid,
-            .posts-grid,
-            .two-column {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>StudyRobot | HS Chris Choi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="HS Chris Choi, Professor of Hospitality, Food and Tourism Management at the University of Guelph. Research on consumer behavior, sustainable tourism, ESG, and AI-driven service experiences."
+  />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --primary: #165ef0;
+      --primary-soft: #e3ecff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --accent: #0f172a;
+      --border-subtle: #e5e7eb;
+      --pill-bg: #edf2ff;
+      --pill-text: #1d4ed8;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --radius-xl: 22px;
+      --radius-lg: 16px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #e5edff 0, #f5f7fb 45%, #f9fafb 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 56px;
+    }
+
+    /* Top nav ------------------------------------------------------ */
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #4f46e5, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f9fafb;
+      font-weight: 600;
+      font-size: 18px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.3);
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-title-main {
+      font-size: 17px;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-title-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(15, 23, 42, 0.04);
+      color: var(--accent);
+    }
+
+    .nav-links .nav-primary {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      padding: 7px 14px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #f9fafb;
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+    }
+
+    .nav-links .nav-primary:hover {
+      filter: brightness(1.03);
+    }
+
+    /* Layout ------------------------------------------------------- */
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1.1fr);
+      gap: 26px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+      .page {
+        padding-top: 20px;
+      }
+    }
+
+    /* Hero left ---------------------------------------------------- */
+
+    .hero {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      padding: 28px 26px 26px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at -10% -20%, #bfdbfe 0, transparent 55%),
+        radial-gradient(circle at 120% -40%, #1d4ed8 0, transparent 55%);
+      opacity: 0.65;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tags {
+      display: inline-flex;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--primary);
+      background: rgba(219, 234, 254, 0.8);
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .hero-tags span + span {
+      color: #4b5563;
+    }
+
+    .hero-title {
+      font-size: 32px;
+      line-height: 1.15;
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .hero-title strong {
+      color: #1d4ed8;
+    }
+
+    .hero-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 36rem;
+      margin-bottom: 18px;
+    }
+
+    .hero-meta {
+      font-size: 12px;
+      color: #4b5563;
+      margin-bottom: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .btn {
+      border-radius: var(--radius-pill);
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #f9fafb;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(15, 23, 42, 0.02);
+      color: #111827;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .hero-footnote {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    .hero-footnote b {
+      color: #111827;
+    }
+
+    /* Right profile card ------------------------------------------- */
+
+    .profile-card {
+      background: radial-gradient(circle at top left, #1d2a3f, #020617);
+      border-radius: var(--radius-xl);
+      padding: 24px 22px 20px;
+      color: #e5e7eb;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(96, 165, 250, 0.3), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.35), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .profile-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .profile-id {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .profile-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 25% 15%, #facc15, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: #020617;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.8);
+    }
+
+    .profile-text-main {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .profile-text-sub {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .badge {
+      font-size: 10px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.3),
+        rgba(15, 23, 42, 0.1)
+      );
+    }
+
+    .school-logo {
+      width: 140px;
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .stat {
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.4), transparent);
+      border-radius: 16px;
+      padding: 10px 10px 9px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .profile-link {
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.28);
+    }
+
+    .profile-link:hover {
+      background: rgba(15, 23, 42, 0.45);
+    }
+
+    /* Focus areas -------------------------------------------------- */
+
+    .section {
+      margin-top: 32px;
+    }
+
+    .section-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 650;
+    }
+
+    .section-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .focus-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .focus-card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 16px 15px 14px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .focus-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .focus-text {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Publications ------------------------------------------------- */
+
+    .pub-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .pub-item {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 11px 12px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.03);
+      font-size: 12px;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .pub-meta {
+      color: #4b5563;
+      font-size: 11px;
+      margin-bottom: 3px;
+    }
+
+    .pub-links {
+      font-size: 11px;
+      color: var(--primary);
+    }
+
+    .pub-badge {
+      display: inline-block;
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4338ca;
+      margin-left: 4px;
+    }
+
+    /* Footer note -------------------------------------------------- */
+
+    .footer-note {
+      margin-top: 26px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .footer-note a {
+      color: var(--primary);
+    }
+  </style>
 </head>
 <body>
-
-<header class="navbar">
-    <div class="navbar-inner">
-        <a href="#top" class="brand">
-            <div class="brand-mark">
-                <div class="brand-mark-inner">C</div>
-            </div>
-            <div class="brand-text">
-                <span class="brand-title">StudyRobot</span>
-                <span class="brand-subtitle">Tourism & Hospitality Insights</span>
-            </div>
-        </a>
-        <nav class="nav-links">
-            <a class="nav-link" href="#about">About</a>
-            <a class="nav-link" href="#expertise">Focus Areas</a>
-            <a class="nav-link" href="#articles">Articles</a>
-            <a class="nav-link" href="#teaching">Teaching</a>
-            <a class="nav-link nav-link-primary" href="#contact">Contact</a>
-        </nav>
-    </div>
-</header>
-
-<main class="page" id="top">
-
-    <!-- HERO -->
-    <section class="hero" id="about">
-        <div class="hero-card">
-            <div class="hero-eyebrow">
-                Tourism & Hospitality • Research • Practice
-            </div>
-            <h1 class="hero-title">
-                Evidence-based<br>
-                <span class="hero-span-accent">tourism & hospitality</span> insights
-                for curious professionals.
-            </h1>
-            <p class="hero-subtitle">
-                I am HS Chris Choi, a tourism and hospitality scholar focusing on
-                consumer behavior, sustainable tourism, service management, and AI-driven
-                experiences. This site curates research-informed reflections for industry,
-                students, and policy makers.
-            </p>
-
-            <div class="hero-meta">
-                <span>Professor • Tourism & Hospitality</span>
-                <span class="hero-meta-dot"></span>
-                <span>Consumer behavior · ESG · AI in services</span>
-            </div>
-
-            <div class="hero-actions">
-                <a href="#articles" class="btn btn-primary">
-                    Browse latest articles →
-                </a>
-                <a href="#contact" class="btn btn-ghost">
-                    Invite for a talk / workshop
-                </a>
-            </div>
-
-            <div class="hero-note">
-                Designed for easy automation: future articles can be injected into the
-                <strong>Articles</strong> section as cards.
-            </div>
+  <div class="page">
+    <!-- Navigation -->
+    <header class="nav">
+      <div class="nav-left">
+        <div class="avatar">C</div>
+        <div class="nav-title">
+          <div class="nav-title-main">StudyRobot</div>
+          <div class="nav-title-sub">Tourism & Hospitality Insights</div>
         </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#focus">Focus Areas</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact" class="nav-primary">Contact</a>
+      </nav>
+    </header>
 
-        <div class="hero-right">
-            <div class="hero-profile">
-                <div class="hero-profile-inner">
-                    <div class="avatar">
-                        <div class="avatar-inner">CC</div>
-                    </div>
-                    <div class="hero-profile-text">
-                        <div class="hero-profile-name">HS Chris Choi, PhD</div>
-                        <div class="hero-profile-role">
-                            Tourism & Hospitality Researcher • Canada
-                        </div>
-                        <div class="hero-profile-tags">
-                            <span class="tag">Service & Experience Design</span>
-                            <span class="tag">Sustainable Tourism</span>
-                            <span class="tag">AI & Automation</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Main layout -->
+    <main class="grid">
+      <!-- Hero / About -->
+      <section class="hero" id="about">
+        <div class="hero-inner">
+          <div class="hero-tags">
+            <span>Tourism & Hospitality</span>
+            <span>Research · Practice</span>
+          </div>
 
-            <div class="hero-stats">
-                <div>
-                    <div class="stat-label">Peer-reviewed articles</div>
-                    <div class="stat-value">50+ </div>
-                </div>
-                <div>
-                    <div class="stat-label">Annual co-authored papers</div>
-                    <div class="stat-value">5–7</div>
-                </div>
-                <div>
-                    <div class="stat-label">Focus</div>
-                    <div class="stat-value">Tourism · Hospitality · ESG</div>
-                </div>
-            </div>
+          <h1 class="hero-title">
+            Evidence-based <strong>tourism &amp; hospitality</strong> insights
+            for curious professionals.
+          </h1>
+
+          <p class="hero-text">
+            I am HS Chris Choi, Professor in the School of Hospitality, Food and
+            Tourism Management at the University of Guelph. I study consumer
+            behavior, sustainable tourism, ESG, and AI-driven service
+            experiences, working with industry, students, and policy makers to
+            translate research into practice.
+          </p>
+
+          <p class="hero-meta">
+            I have published more than <b>200 peer-reviewed articles and technical reports</b>
+            and typically co-author <b>8 to 10 journal papers per year</b> in
+            tourism, hospitality, and service management.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#publications">
+              Browse latest publications →
+            </a>
+            <a
+              class="btn btn-secondary"
+              href="mailto:hwchoi@uoguelph.ca?subject=Speaking%20or%20collaboration%20request"
+            >
+              Invite for a talk / workshop
+            </a>
+          </div>
+
+          <p class="hero-footnote">
+            Designed for easy automation. Future blog posts and project updates
+            can be injected into the <b>Publications</b> and <b>Focus areas</b>
+            sections without changing the layout.
+          </p>
         </div>
+      </section>
+
+      <!-- Profile card -->
+      <aside class="profile-card">
+        <div class="profile-inner">
+          <div class="profile-top">
+            <div class="profile-id">
+              <div class="profile-avatar">CC</div>
+              <div>
+                <div class="profile-text-main">HS Chris Choi, PhD</div>
+                <div class="profile-text-sub">
+                  Professor · School of Hospitality, Food and Tourism Management · Canada
+                </div>
+                <div class="badge-row">
+                  <span class="badge">Service &amp; Experience Design</span>
+                  <span class="badge">Sustainable Tourism</span>
+                  <span class="badge">AI &amp; Automation</span>
+                </div>
+              </div>
+            </div>
+            <img
+              class="school-logo"
+              src="https://upload.wikimedia.org/wikipedia/en/4/4a/University_of_Guelph_logo.svg"
+              alt="University of Guelph logo"
+            />
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-label">Peer-reviewed &amp; technical outputs</div>
+              <div class="stat-value">200+</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Journal papers per year</div>
+              <div class="stat-value">8–10</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Key domains</div>
+              <div class="stat-value">Tourism · ESG · AI</div>
+            </div>
+          </div>
+
+          <div class="links-row">
+            <a
+              class="profile-link"
+              href="https://www.uoguelph.ca/lang/people/hwansuk-chris-choi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              University profile
+            </a>
+            <a
+              class="profile-link"
+              href="https://scholar.google.com/citations?user=0hieV-oAAAAJ&hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google Scholar
+            </a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Focus areas -->
+    <section class="section" id="focus">
+      <div class="section-title-row">
+        <h2 class="section-title">Focus areas</h2>
+        <p class="section-subtitle">
+          Themes that repeatedly appear in my research and consulting work.
+        </p>
+      </div>
+      <div class="focus-grid">
+        <article class="focus-card">
+          <h3 class="focus-title">Consumer behavior in tourism &amp; food</h3>
+          <p class="focus-text">
+            Decision making around travel, dining, and risk: pricing, fairness,
+            tipping, loyalty, and resistance to new service models.
+          </p>
+        </article>
+
+        <article class="focus-card">
+          <h3 class="focus-title">
+            Service management &amp; experience design
+          </h3>
+          <p class="focus-text">
+            Designing high-impact customer journeys in hotels, restaurants,
+            OTAs, and attractions, including service failure and recovery.
+          </p>
+        </article>
+
+        <article class="focus-card">
+          <h3 class="focus-title">
+            Sustainability, ESG &amp; responsible tourism
+          </h3>
+          <p class="focus-text">
+            How guests, residents, and employees respond to ESG initiatives,
+            regenerative tourism, and climate-related business resilience.
+          </p>
+        </article>
+      </div>
     </section>
 
-    <!-- EXPERTISE -->
-    <section id="expertise">
-        <div class="section-header">
-            <h2 class="section-title">Focus areas</h2>
-            <p class="section-subtitle">Themes that repeatedly appear in my research and consulting work.</p>
-        </div>
+    <!-- Recent publications -->
+    <section class="section" id="publications">
+      <div class="section-title-row">
+        <h2 class="section-title">Selected recent publications</h2>
+        <p class="section-subtitle">
+          A small sample of recent and forthcoming work. More can be found on
+          my Google Scholar profile.
+        </p>
+      </div>
 
-        <div class="expertise-grid">
-            <div class="chip-card">
-                <div class="chip-title">Consumer behavior in tourism & food</div>
-                <p class="chip-body">
-                    Decision making around travel, dining, and risk—pricing, fairness, tipping,
-                    loyalty, and resistance to new service models.
-                </p>
-            </div>
-            <div class="chip-card">
-                <div class="chip-title">Service management & experience design</div>
-                <p class="chip-body">
-                    Designing high-impact customer journeys in hotels, restaurants, OTAs,
-                    and attractions, including service failure and recovery.
-                </p>
-            </div>
-            <div class="chip-card">
-                <div class="chip-title">Sustainability, ESG & responsible tourism</div>
-                <p class="chip-body">
-                    How guests and employees react to ESG initiatives, regenerative tourism,
-                    and climate-related business resilience.
-                </p>
-            </div>
-            <div class="chip-card">
-                <div class="chip-title">AI, automation & data-driven services</div>
-                <p class="chip-body">
-                    Emotion recognition, autonomous mobility, and platform algorithms shaping
-                    hospitality experiences.
-                </p>
-            </div>
-            <div class="chip-card">
-                <div class="chip-title">Student learning & service education</div>
-                <p class="chip-body">
-                    How business and hospitality students build skills, resilience, and ethical
-                    judgment in rapidly changing service industries.
-                </p>
-            </div>
-            <div class="chip-card">
-                <div class="chip-title">Qualitative, quantitative & mixed methods</div>
-                <p class="chip-body">
-                    Fieldwork, experiments, survey research, and text analytics to answer theory-driven,
-                    practice-relevant questions.
-                </p>
-            </div>
-        </div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <div class="pub-title">
+            Developing and validating an ethical risk scale for service robots
+            in hospitality
+            <span class="pub-badge">A*</span>
+          </div>
+          <div class="pub-meta">
+            Lin, B., Lee, W., <strong>Choi, H. S. C.</strong>, &amp; Andereck, K. (2026).
+            <em>International Journal of Hospitality Management, 132</em>, 104383.
+            DOI: 10.1016/j.ijhm.2025.104383
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-title">
+            Reimagining tourism marketing and destination planning in a changing
+            world
+            <span class="pub-badge">Q1</span>
+          </div>
+          <div class="pub-meta">
+            Choi, H. Y., <strong>Choi, H. S. C.</strong>, &amp; Liang, L. J. (2025).
+            <em>Tourism and Hospitality, 6</em>(5), 246.
+            <a
+              class="pub-links"
+              href="https://doi.org/10.3390/tourhosp6050246"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://doi.org/10.3390/tourhosp6050246
+            </a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-title">
+            Service automation in tourism and hospitality: A comprehensive review
+            of definitions, key themes, and future research directions
+            <span class="pub-badge">A</span>
+          </div>
+          <div class="pub-meta">
+            Liang, J., <strong>Choi, H. S. C.</strong>, &amp; Lee, W. (2025).
+            <em>Journal of Services Marketing</em>. Accepted.
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-title">
+            Psychological ownership and anonymity in robotaxi use: Pathways to
+            long-term engagement in smart tourism
+            <span class="pub-badge">A</span>
+          </div>
+          <div class="pub-meta">
+            Yang, R., Lee, W. J., &amp; <strong>Choi, H. S. C.</strong> (2025).
+            <em>Journal of Travel &amp; Tourism Marketing, 42</em>(9), 1220–1239.
+            <a
+              class="pub-links"
+              href="https://doi.org/10.1080/10548408.2025.2583958"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://doi.org/10.1080/10548408.2025.2583958
+            </a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-title">
+            From malls to markets: What makes shopping irresistible for Chinese
+            tourists?
+            <span class="pub-badge">Q2</span>
+          </div>
+          <div class="pub-meta">
+            Liang, Y., Huang, S., &amp; <strong>Choi, H. S. C.</strong> (2025).
+            <em>Tourism and Hospitality, 6</em>(4), 216.
+            <a
+              class="pub-links"
+              href="https://doi.org/10.3390/tourhosp6040216"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://doi.org/10.3390/tourhosp6040216
+            </a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-title">
+            Cultivating cannabis agritourism: Integrating service-dominant logic
+            in Northern California’s Emerald Triangle
+            <span class="pub-badge">Q1</span>
+          </div>
+          <div class="pub-meta">
+            Dupej, S., &amp; <strong>Choi, H. S. C.</strong> (2025).
+            <em>Journal of Rural Studies, 120</em>, 103864.
+            <a
+              class="pub-links"
+              href="https://doi.org/10.1016/j.jrurstud.2025.103864"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://doi.org/10.1016/j.jrurstud.2025.103864
+            </a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-title">
+            Trails of transformation: Balancing sustainability, security, and
+            culture in DMZ walking tourism
+            <span class="pub-badge">Q1</span>
+          </div>
+          <div class="pub-meta">
+            Lee, H. J., <strong>Choi, H. S. C.</strong>, &amp; Jung, C. (2025).
+            <em>Land, 14</em>(6), 1204.
+            DOI: 10.3390/land14061204
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-title">
+            Why tourists avoid peer-to-peer accommodations: Insights into risks,
+            trust, and service dynamics
+            <span class="pub-badge">A</span>
+          </div>
+          <div class="pub-meta">
+            Lee, H. Y., Zhang, P., &amp; <strong>Choi, H. S. C.</strong> (2025).
+            <em>International Journal of Tourism Research, 27</em>(6), e70146.
+            <a
+              class="pub-links"
+              href="https://doi.org/10.1002/jtr.70146"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://doi.org/10.1002/jtr.70146
+            </a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-title">
+            Exploring customer resistance to travel subscriptions: The case of
+            passive and active innovation resistance
+            <span class="pub-badge">A</span>
+          </div>
+          <div class="pub-meta">
+            Yang, R., Wise, N., Lee, W. J., &amp; <strong>Choi, H. S. C.</strong> (2025).
+            <em>International Journal of Tourism Research</em>.
+            <a
+              class="pub-links"
+              href="http://dx.doi.org/10.1002/jtr.70144"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              http://dx.doi.org/10.1002/jtr.70144
+            </a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-title">
+            Mapping value co-destruction in online travel agencies: A practice
+            theory and customer journey perspective
+            <span class="pub-badge">A*</span>
+          </div>
+          <div class="pub-meta">
+            Zolfaghaari, A., &amp; <strong>Choi, H. S. C.</strong> (2025).
+            <em>Tourism Management, 110</em>, 105197.
+            <a
+              class="pub-links"
+              href="https://doi.org/10.1016/j.tourman.2025.105197"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://doi.org/10.1016/j.tourman.2025.105197
+            </a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-title">
+            Approaching cannabis tourism with shared value in legal contexts
+            <span class="pub-badge">A</span>
+          </div>
+          <div class="pub-meta">
+            Dupej, S., &amp; <strong>Choi, H. S. C.</strong> (2025).
+            <em>International Journal of Tourism Research, 27</em>, e70014.
+            <a
+              class="pub-links"
+              href="http://dx.doi.org/10.1002/jtr.70014"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              http://dx.doi.org/10.1002/jtr.70014
+            </a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-title">
+            Exploring the dual pathways to well-being: The role of value
+            co-creation in enhancing hedonic and eudaimonic experiences in
+            tourism
+            <span class="pub-badge">A</span>
+          </div>
+          <div class="pub-meta">
+            Li, L., Yu, M., <strong>Choi, H. S. C.</strong>*, &amp; Lee, H. (2025).
+            <em>Journal of Vacation Marketing</em>.
+            <a
+              class="pub-links"
+              href="https://doi.org/10.1177/13567667251320111"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://doi.org/10.1177/13567667251320111
+            </a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-title">
+            Love at first site: Exploring the influence of place attachment on
+            real-time tourist sharing behavior
+            <span class="pub-badge">B</span>
+          </div>
+          <div class="pub-meta">
+            Choi, H., <strong>Choi, H. S. C.</strong>*, &amp; Sukhu, A. (2025).
+            <em>Tourism Recreation Research</em>, 1–13.
+            <a
+              class="pub-links"
+              href="https://doi.org/10.1080/02508281.2025.2450806"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://doi.org/10.1080/02508281.2025.2450806
+            </a>
+          </div>
+        </li>
+      </ul>
     </section>
 
-    <!-- ARTICLES / BLOG -->
-    <section id="articles">
-        <div class="section-header">
-            <h2 class="section-title">Articles & field notes</h2>
-            <p class="section-subtitle">
-                Blog-style reflections. This section is structured so future scripts can
-                auto-generate each <code>&lt;article class="post-card"&gt;</code>.
-            </p>
-        </div>
-
-        <div class="posts-grid">
-
-            <!-- POST CARD TEMPLATE – DUPLICATE THIS BLOCK FOR NEW POSTS -->
-            <article class="post-card"
-                     data-category="sustainability"
-                     data-date="2025-01-01">
-                <div class="post-badge-row">
-                    <span class="post-badge">Sustainable Tourism</span>
-                    <span>5 min read</span>
-                </div>
-                <h3 class="post-title">
-                    Why guests say they care about ESG, but ignore most hotel initiatives
-                </h3>
-                <p class="post-excerpt">
-                    Many hotels invest in ESG communication, yet guests rarely change their
-                    behavior. This post unpacks three psychological gaps between stated concern,
-                    actual attention, and on-site action.
-                </p>
-                <div class="post-meta">
-                    <span>Canada • hotel case examples</span>
-                    <span>Methods: field observation + survey</span>
-                </div>
-                <a href="#" class="post-readmore">Full article (coming soon)</a>
-            </article>
-
-            <article class="post-card"
-                     data-category="service"
-                     data-date="2025-01-02">
-                <div class="post-badge-row">
-                    <span class="post-badge">Service Design</span>
-                    <span>7 min read</span>
-                </div>
-                <h3 class="post-title">
-                    Designing service recovery when the agent is a machine, not a human
-                </h3>
-                <p class="post-excerpt">
-                    Automated agents are now handling apologies, refunds, and complaints.
-                    I discuss when automation helps, when it backfires, and how to blend
-                    human and machine roles in recovery.
-                </p>
-                <div class="post-meta">
-                    <span>Context: hotels · airlines · OTAs</span>
-                    <span>Concepts: emotion recognition, construal level</span>
-                </div>
-                <a href="#" class="post-readmore">Full article (coming soon)</a>
-            </article>
-
-            <article class="post-card"
-                     data-category="education"
-                     data-date="2025-01-03">
-                <div class="post-badge-row">
-                    <span class="post-badge">Teaching & Learning</span>
-                    <span>4 min read</span>
-                </div>
-                <h3 class="post-title">
-                    What hospitality students really need from an “AI-ready” curriculum
-                </h3>
-                <p class="post-excerpt">
-                    Beyond tools and prompts, hospitality education must cultivate judgment,
-                    service empathy, and critical thinking about automation. Here is how I am
-                    redesigning my own courses.
-                </p>
-                <div class="post-meta">
-                    <span>Audience: educators & program leaders</span>
-                    <span>Format: teaching reflection</span>
-                </div>
-                <a href="#" class="post-readmore">Full article (coming soon)</a>
-            </article>
-
-        </div>
+    <!-- Teaching anchor (placeholder text) -->
+    <section class="section" id="teaching">
+      <div class="section-title-row">
+        <h2 class="section-title">Teaching and supervision</h2>
+        <p class="section-subtitle">
+          Selected teaching areas and ways I work with students and partners.
+        </p>
+      </div>
+      <p class="section-subtitle">
+        I teach courses in destination marketing, revenue management, and
+        research methods, and I supervise graduate students working on
+        technology adoption, sustainable tourism, and service innovation. A
+        more detailed teaching portfolio can be added here later.
+      </p>
     </section>
 
-    <!-- TEACHING & CONTACT -->
-    <section id="teaching">
-        <div class="section-header">
-            <h2 class="section-title">Teaching, speaking & collaboration</h2>
-            <p class="section-subtitle">
-                Courses, invited talks, and projects where tourism, hospitality, and data meet.
-            </p>
-        </div>
-
-        <div class="two-column">
-            <div class="panel">
-                <h3 class="panel-title">Teaching & workshops</h3>
-                <p class="panel-body">
-                    I regularly teach undergraduate, graduate, and executive-level courses in
-                    tourism and hospitality management, service design, and research methods.
-                </p>
-                <ul class="panel-list">
-                    <li>Destination marketing & experience management</li>
-                    <li>Service failure, recovery, and customer experience</li>
-                    <li>ESG, sustainability, and responsible tourism</li>
-                    <li>AI, automation, and data literacy in hospitality</li>
-                </ul>
-            </div>
-
-            <div class="panel" id="contact">
-                <h3 class="panel-title">Contact & collaboration</h3>
-                <p class="panel-body">
-                    For speaking invitations, research collaborations, or consulting
-                    conversations, feel free to reach out.
-                </p>
-                <div class="contact-row">
-                    Email: <a href="mailto:hschoi@uoguelph.ca">hschoi@uoguelph.ca</a>
-                </div>
-                <div class="contact-row">
-                    Location: Ontario, Canada • available for virtual and on-site engagements.
-                </div>
-            </div>
-        </div>
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="section-title-row">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">
+          For research collaborations, student supervision, or industry projects.
+        </p>
+      </div>
+      <p class="section-subtitle">
+        Email is the best way to reach me:
+        <a href="mailto:hwchoi@uoguelph.ca">hwchoi@uoguelph.ca</a>. For a full
+        list of publications and citation metrics, please see my
+        <a
+          href="https://scholar.google.com/citations?user=0hieV-oAAAAJ&hl=en"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google Scholar profile
+        </a>.
+      </p>
     </section>
 
-    <footer>
-        © <span id="year"></span> HS Chris Choi · StudyRobot · Tourism & Hospitality Insights.
-    </footer>
-</main>
-
-<script>
-    // simple year auto-update
-    document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+    <p class="footer-note">
+      This site is powered by GitHub Pages. Content can be updated by editing
+      the <code>index.html</code> file or by adding simple text files for new
+      publications in a future automated workflow.
+    </p>
+  </div>
 </body>
 </html>
